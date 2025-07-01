@@ -1,0 +1,40 @@
+.title{
+  color: red;
+}
+.navbar-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid red;
+  max-width: 1250px;
+  margin: 0 auto;
+  background: burlywood;
+}
+.logo-section{
+  border: 2px solid blue;
+  width: 50%;
+  margin-left: 30px;
+}
+.nav-section{
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid green;
+  width: 50%;
+
+}
+.nav-section a{
+  text-decoration: none;
+  color: blue;
+  font-weight: 700;
+}
+.nav-section button{
+  color: brown;
+  background-color: bisque;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+/*
+.display-flex{
+  display: flex;
+} */
