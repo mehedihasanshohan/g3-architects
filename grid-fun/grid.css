@@ -12,6 +12,31 @@
   gap: 5px;
 }
 
+.grid-container > div:hover {
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.grid-container > div:hover {
+  transform: rotate(5deg) scale(1.03);
+  transition: transform 0.4s ease-in-out;
+}
+
+.grid-container > div:hover {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 .grid-item-1{
   background-color: rgb(8, 84, 27);
   grid-column: 1/span 3;
@@ -56,4 +81,23 @@
 .grid-item-6,
 .grid-item-7{
   border-radius: 12px;
+}
+
+
+/* Mobile: ≤ 640px */
+@media (max-width: 640px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-item-1,
+  .grid-item-2,
+  .grid-item-3,
+  .grid-item-4,
+  .grid-item-5,
+  .grid-item-6,
+  .grid-item-7 {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
 }
