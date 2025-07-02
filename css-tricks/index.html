@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rare CSS Tricks Showcase</title>
+  <style>
+    /* General Reset */
+    :where(*) {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-wrap: balance;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: #2b2b2b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: border 0.3s;
+    }
+
+    .card:has(img:hover) {
+      border: 2px solid hotpink;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      accent-color: limegreen;
+      margin-right: 0.5rem;
+    }
+
+    .glass {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      background: cyan;
+      width: 150px;
+      height: 150px;
+      margin: 1rem auto;
+    }
+
+    .container {
+      container-type: inline-size;
+      padding: 1rem;
+      background: #333;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    @container (min-width: 500px) {
+      .card-inner {
+        flex-direction: row;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>💡 Rare CSS Tricks Showcase</h1>
+
+  <div class="card">
+    <p>✅ Hover on the image to trigger parent border (using <code>:has()</code>):</p>
+    <img src="https://placekitten.com/300/200" alt="Cute kitten" />
+  </div>
+
+  <div class="card">
+    <p>✅ Custom checkbox color using <code>accent-color</code>:</p>
+    <label><input type="checkbox" checked /> I love CSS</label>
+  </div>
+
+  <div class="card">
+    <p>✅ Smooth scrolling set globally via <code>scroll-behavior</code></p>
+    <a href="#bottom" style="color: lightblue;">Scroll to bottom 🔽</a>
+  </div>
+
+  <div class="card">
+    <p>✅ Balanced text wrapping in <code>h1</code> using <code>text-wrap: balance;</code></p>
+    <h1>This is a beautifully balanced long heading</h1>
+  </div>
+
+  <div class="card">
+    <p>✅ Glassmorphism effect using <code>backdrop-filter</code>:</p>
+    <div class="glass">This looks like frosted glass ✨</div>
+  </div>
+
+  <div class="card">
+    <p>✅ Custom shape with <code>clip-path</code> (triangle below):</p>
+    <div class="triangle"></div>
+  </div>
+
+  <div class="card container">
+    <p>✅ Container Query in action:</p>
+    <div class="card-inner">
+      <div style="background:#444; padding:1rem; border-radius:8px;">Box 1</div>
+      <div style="background:#444; padding:1rem; border-radius:8px;">Box 2</div>
+    </div>
+  </div>
+
+  <div id="bottom" style="margin-top:100vh;">🎉 You reached the bottom!</div>
+</body>
+</html>

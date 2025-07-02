@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blurry Blue Dialog</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h2 {
+      color: #fff;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #00b4ff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0094d8;
+    }
+
+    dialog {
+      padding: 30px 40px;
+      border: none;
+      border-radius: 18px;
+      background: rgba(0, 91, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 191, 255, 0.37);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 174, 255, 0.3);
+      text-align: center;
+      max-width: 380px;
+      animation: fadeIn 0.3s ease;
+      color: #e3f6ff;
+    }
+
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(3px);
+    }
+
+    dialog h3 {
+      margin: 0 0 10px;
+      font-weight: 600;
+      color: #e0f4ff;
+    }
+
+    dialog p {
+      font-size: 14px;
+      color: #cce9ff;
+      margin-bottom: 20px;
+    }
+
+    dialog button {
+      background-color: #006bb3;
+      padding: 8px 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    dialog button:hover {
+      background-color: #005999;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2> Blurry Glass Dialog</h2>
+
+  <button onclick="document.getElementById('popup').showModal()">Open Dialog</button>
+
+ <dialog id="popup">
+  <h3>HTML Built-in Modal</h3>
+  <p>HTML has a built-in tag that opens a modal without any JS or CSS frameworks.</p>
+  <button onclick="document.getElementById('popup').close()">Close</button>
+</dialog>
+
+
+</body>
+</html>
