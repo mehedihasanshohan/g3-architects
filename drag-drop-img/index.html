@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drag & Drop Photo Grid</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #1a1a1a;
+      font-family: sans-serif;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      border: 2px solid white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease;
+      cursor: grab;
+    }
+
+    .photo:hover {
+      transform: scale(1.05);
+    }
+
+    .drag-over {
+      outline: 3px dashed #00ffff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid">
+    <div class="photo" style="background-image: url('https://picsum.photos/id/1015/300');" draggable="true"></div>
+    <div class="photo" style="background-image: url('https://picsum.photos/id/1021/300');" draggable="true"></div>
+    <div class="photo" style="background-image: url('https://picsum.photos/id/1025/300');" draggable="true"></div>
+    <div class="photo" style="background-image: url('https://picsum.photos/id/1035/300');" draggable="true"></div>
+    <div class="photo" style="background-image: url('https://picsum.photos/id/1042/300');" draggable="true"></div>
+    <div class="photo" style="background-image: url('https://picsum.photos/id/1050/300');" draggable="true"></div>
+  </div>
+
+  <script>
+    const photos = document.querySelectorAll('.photo');
+    let dragSrc = null;
+
+    photos.forEach(photo => {
+      photo.addEventListener('dragstart', e => {
+        dragSrc = photo;
+        e.dataTransfer.effectAllowed = 'move';
+      });
+
+      photo.addEventListener('dragover', e => {
+        e.preventDefault();
+        photo.classList.add('drag-over');
+      });
+
+      photo.addEventListener('dragleave', () => {
+        photo.classList.remove('drag-over');
+      });
+
+      photo.addEventListener('drop', e => {
+        e.preventDefault();
+        if (dragSrc !== photo) {
+          // Swap backgrounds
+          const temp = photo.style.backgroundImage;
+          photo.style.backgroundImage = dragSrc.style.backgroundImage;
+          dragSrc.style.backgroundImage = temp;
+        }
+        photo.classList.remove('drag-over');
+      });
+    });
+  </script>
+
+</body>
+</html>
