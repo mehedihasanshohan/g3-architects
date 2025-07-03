@@ -318,5 +318,42 @@ main > section{
         margin-top: 20px;
         margin-left: 20px;
     }
-
   }
+
+
+
+  .tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  position: absolute;
+  bottom: 125%;
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #333;
+  border-top-color: #00feba;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 50px auto;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
